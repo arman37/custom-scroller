@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Custom Scroller</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/custom-scroller.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready( function() {
+            $('.menu').customScroller({
+                'scrollSpeed' : 1000
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="">
+      <div class="menu" >
+          <div class="inner">
+            <ul>
+              <li class="btn-navigation" data-route="home">Home</li>
+              <li class="btn-navigation" data-route="sec-A">Section A</li>
+              <li class="btn-navigation" data-route="sec-B">Section B</li>
+              <li class="btn-navigation" data-route="sec-C">Section C</li>
+              <li class="btn-navigation" data-route="sec-D">Section D</li>
+              <li class="btn-navigation" data-route="sec-E">Section E</li>
+              <li class="btn-navigation" data-route="sec-F">Section F</li>
+            </ul>
+          </div>
+      </div>
+      <div class="section home">
+          <h1>Custom Scroller Home Page</h1>
+      </div>
+      <div class="section sec-A">
+          <h1>Section A</h1>
+      </div>
+      <div class="section sec-B">
+          <h1>Section B</h1>
+      </div>
+      <div class="section sec-C">
+          <h1>Section C</h1>
+      </div>
+      <div class="section sec-D">
+          <h1>Section D</h1>
+      </div>
+      <div class="section sec-E">
+          <h1>Section E</h1>
+      </div>
+      <div class="section sec-F" style="height: 450px;">
+          <h1>Section F</h1>
+      </div>
+    </div>
+</body>
+</html>

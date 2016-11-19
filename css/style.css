@@ -1,0 +1,76 @@
+* {margin: 0; padding: 0; outline: 0;}
+body {
+	font-family: Helvetica, Arial, Verdana, sans-serif;
+	color: #e5e5e5;
+	font-size: 12px;
+	background:#bfbfbf;
+}
+.clear {
+	clear: both;
+}
+.section {
+	width: 100%;
+	max-width: 1600px;
+	min-width: 960px;
+	z-index: 10;
+	position: relative;
+	margin: 0 auto;
+	padding: 0 0 20px 0;
+	height: 350px;
+}
+.section h1 {
+	text-align: center;
+}
+.menu {
+	height: 50px;
+	z-index: 1000;
+	width: 100%;
+	background: #161616;
+}
+.menu .inner {
+	padding:0;
+	font-weight: 400;
+	margin: 0 auto;
+}
+.btn-navigation {
+	display: block;
+	height: 35px;
+	width: 10%;
+	float: left;
+	margin: 0px 0px 0 0;
+	text-decoration: none;
+	font-size: 14px;
+	padding: 15px 2% 0 2%;
+	text-align: center;
+	color: #fff;
+}
+.menu li:hover {
+	background: #1783c7;
+}
+.active {
+	background: #25aae1;
+}
+
+/* SECTIONS */
+.home {
+	background: #1b83b3;
+}
+.sec-A {
+	background:#184764;
+}
+.sec-B {
+	background: #313131;
+}
+.sec-C {
+	background: #504f4f;
+}
+.sec-D {
+	background: #928d8d;
+}
+.sec-E {
+	background: #cac5c5;
+	color: #3d3d3d;
+}
+.sec-F {
+	background: #312e2e;
+}
