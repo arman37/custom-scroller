@@ -1,5 +1,8 @@
 /**
- * Created by Arman on 7/24/2016.
+ *
+ * @author arman
+ * @since 7/24/2016
+ *
  */
 
 (function ($) {
@@ -10,16 +13,16 @@
         }, configs);
 
         $(this).addClass('custom-scroller');
-        var navs = []
-            ,lastScrollTop = 0
-            ,menu = $('.custom-scroller')
-            ,menuHeight = $(".custom-scroller").height()
-            ,menuList = menu.find('li')
-            ,menuClicked = false
-            ,clickedItem = null
-            ,scrollSpeed = configs.scrollSpeed
-            ,scrollTimeout = null
-            ,mySelector = configs.mySelector;
+        var navs = [];
+        var lastScrollTop = 0;
+        var menu = $('.custom-scroller');
+        var menuHeight = $(".custom-scroller").height();
+        var menuList = menu.find('li');
+        var menuClicked = false;
+        var clickedItem = null;
+        var scrollSpeed = configs.scrollSpeed;
+        var scrollTimeout = null;
+        var mySelector = configs.mySelector;
 
         (function init() {
             menu.css({ 'position': 'fixed', 'top':0,'left':0 });
@@ -31,6 +34,7 @@
 
         function handleMenuItems(index) {
             var route = $(this).attr('data-route');
+
             navs.push(route);
             $(this).attr('id', route);
             $(this).on('click', handleMenuClick);
@@ -39,6 +43,7 @@
         function handleMenuClick(event) {
             var myOffset = menuHeight;
             var goTo = $(mySelector+'.'+ $(this).attr('data-route')).offset().top - myOffset;
+
             menuClicked = true;
             clickedItem = $(this);
             $("html, body").stop().animate({ scrollTop: goTo }, scrollSpeed);
@@ -47,22 +52,29 @@
         function handleWinScroll(event) {
             var st = $(this).scrollTop() + menuHeight;
             var direction;
+
             if (st > lastScrollTop) {
                 direction = "down";
             } else if (st < lastScrollTop ){
                 direction = "up";
             }
+
             lastScrollTop = st;
             updateMenu();
-            if($(window).scrollTop() + $(window).height() == $(document).height()) {
+
+            if ($(window).scrollTop() + $(window).height() == $(document).height()) {
                 menuList.removeClass('active');
-                if(menuClicked && clickedItem) {
+                if (menuClicked && clickedItem) {
                     clickedItem.addClass('active');
-                }else {
+                } else {
                     $(".custom-scroller li:last").addClass('active');
                 }
             }
-            if(scrollTimeout) clearTimeout(scrollTimeout);
+
+            if (scrollTimeout) {
+              clearTimeout(scrollTimeout);
+            }
+
             scrollTimeout = setTimeout(function () {
                 menuClicked = false;
                 clickedItem = null;
@@ -73,26 +85,35 @@
             var minDistance = 10000;
             var route = '';
             var foundSection = false;
+
             navs.forEach(function (nav) {
-                if(elementInViewport($(mySelector+'.'+ nav))) {
+                if (elementInViewport($(mySelector+'.'+ nav))) {
                     var distance = parseInt($(mySelector+"." + nav).offset().top) - parseInt($(".custom-scroller").offset().top);
-                    if(distance < minDistance) {
+
+                    if (distance < minDistance) {
                         minDistance = distance;
                         route = nav;
                         foundSection = true;
                     }
                 }
             });
-            if(foundSection) menuList.removeClass('active');
+
+            if (foundSection) {
+              menuList.removeClass('active');
+            }
+
             $(".custom-scroller li[data-route=" + route + "]").addClass('active');
         }
 
         function elementInViewport(el) {
+            var rect;
             //special bonus for those using jQuery
             if (typeof jQuery === "function" && el instanceof jQuery) {
                 el = el[0];
             }
-            var rect = el.getBoundingClientRect();
+
+            rect = el.getBoundingClientRect();
+
             return (
                 rect.top >= 0 &&
                 rect.left >= 0 &&
